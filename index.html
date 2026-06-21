@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CabaiCare – Sistem Pakar Forward Chaining</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- SPLASH -->
+    <div id="splash">
+        <div class="splash-pepper">🌶️</div>
+        <div class="splash-title">Cabai<span>Care</span></div>
+        <div class="splash-sub">Sistem Pakar Forward Chaining untuk Deteksi Penyakit Cabai</div>
+        <div class="splash-badge">
+            <span><i class="fas fa-microchip"></i> Forward Chaining</span>
+            <span><i class="fas fa-route"></i> Step-by-Step</span>
+            <span><i class="fas fa-leaf"></i> 15 Gejala</span>
+        </div>
+        <div class="splash-bar-wrap">
+            <div class="splash-bar" id="splashBar"></div>
+        </div>
+        <button id="btnSplash"><i class="fas fa-play"></i> Mulai Konsultasi</button>
+    </div>
+
+    <!-- NAV -->
+    <nav id="mainNav" style="display:none">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo"><i class="fas fa-pepper-hot"></i> CabaiCare</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#" data-sec="heroSec" class="active">Beranda</a>
+                <a href="#" data-sec="caraSec">Cara Kerja</a>
+                <a href="#" data-sec="gejalaInfoSec">Katalog Gejala</a>
+                <a href="#" data-sec="diagnosaSection">Diagnosa</a>
+                <a href="#" data-sec="fiturSec">Fitur</a>
+                <a href="#" id="riwayatBtn"><i class="fas fa-history"></i> Riwayat</a>
+            </div>
+            <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <div id="mainApp" style="display:none">
+
+        <!-- HERO -->
+        <section id="heroSec">
+            <div class="hero">
+                <div class="hero-inner">
+                    <div class="hero-eyebrow"><i class="fas fa-microchip"></i> Forward Chaining Engine</div>
+                    <h1>Diagnosa Dini <em>Penyakit Cabai</em><br />Berbasis Sistem Pakar</h1>
+                    <p>Sistem bertanya satu per satu gejala dari fakta yang ada — Forward Chaining murni — untuk menyimpulkan penyakit dan merekomendasikan solusi terbaik.</p>
+                    <div class="hero-stats">
+                        <div class="stat-pill"><span class="n">15</span><span class="l">Gejala Terdata</span></div>
+                        <div class="stat-pill"><span class="n">15</span><span class="l">Solusi Pakar</span></div>
+                        <div class="stat-pill"><span class="n">24/7</span><span class="l">Siap Diakses</span></div>
+                    </div>
+                    <button class="btn-hero" id="heroStartBtn">
+                        <i class="fas fa-stethoscope"></i> Mulai Diagnosa Sekarang
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARA KERJA -->
+        <section id="caraSec" class="section-alt">
+            <div class="section" style="padding-top:56px;padding-bottom:56px">
+                <div class="section-header">
+                    <span class="sec-eyebrow">Mekanisme</span>
+                    <h2>Bagaimana Forward Chaining Bekerja?</h2>
+                    <p>Sistem memulai dari <strong>fakta</strong> (gejala yang ada), lalu menarik <strong>kesimpulan</strong> secara bertahap — berbeda dari backward chaining yang memulai dari hipotesis.</p>
+                </div>
+                <div class="how-grid">
+                    <div class="how-card">
+                        <div class="how-num">1</div>
+                        <div class="how-icon"><i class="fas fa-question-circle"></i></div>
+                        <h3>Pertanyaan Gejala</h3>
+                        <p>Sistem mengajukan pertanyaan satu per satu tentang gejala yang terlihat pada tanaman.</p>
+                    </div>
+                    <div class="how-card">
+                        <div class="how-num">2</div>
+                        <div class="how-icon"><i class="fas fa-database"></i></div>
+                        <h3>Akumulasi Fakta</h3>
+                        <p>Setiap jawaban "Ya" ditambahkan ke basis fakta dan dievaluasi terhadap aturan pakar.</p>
+                    </div>
+                    <div class="how-card">
+                        <div class="how-num">3</div>
+                        <div class="how-icon"><i class="fas fa-cogs"></i></div>
+                        <h3>Pencocokan Aturan</h3>
+                        <p>Mesin inferensi mencocokkan fakta dengan rule base: <em>IF gejala THEN solusi</em>.</p>
+                    </div>
+                    <div class="how-card">
+                        <div class="how-num">4</div>
+                        <div class="how-icon"><i class="fas fa-trophy"></i></div>
+                        <h3>Kesimpulan</h3>
+                        <p>Solusi dengan bobot tertinggi diberikan sebagai rekomendasi akhir beserta tingkat keyakinan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KATALOG GEJALA -->
+        <section id="gejalaInfoSec" class="section">
+            <div class="section-header">
+                <span class="sec-eyebrow">Basis Pengetahuan</span>
+                <h2>Katalog Gejala Tanaman Cabai</h2>
+                <p>15 indikasi gangguan yang dikenali sistem pakar CabaiCare</p>
+            </div>
+            <div class="gejala-grid" id="gejalaInfoGrid"></div>
+        </section>
+
+        <!-- DIAGNOSA -->
+        <section id="diagnosaSection">
+            <div class="section">
+                <div class="section-header">
+                    <span class="sec-eyebrow">Diagnosa Mandiri</span>
+                    <h2>Konsultasi Forward Chaining</h2>
+                    <p>Jawab pertanyaan sistem satu per satu — mesin akan menyimpulkan solusi dari fakta yang terkumpul</p>
+                </div>
+
+                <div class="wizard-wrap">
+                    <!-- Progress -->
+                    <div class="wizard-progress">
+                        <div class="progress-meta">
+                            <span class="label" id="progLabel">Siap Memulai</span>
+                            <span class="step-count" id="progStep">0 / 15</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill" id="progFill" style="width:0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="wizard-body" id="wizBody">
+                        <!-- START screen -->
+                        <div class="wiz-start" id="screenStart">
+                            <div class="big-icon">🌶️</div>
+                            <h2>Mulai Konsultasi Tanaman Cabai</h2>
+                            <p>Sistem akan mengajukan <strong>15 pertanyaan</strong> tentang gejala yang terlihat. Jawab jujur sesuai kondisi tanaman Anda.</p>
+                            <div style="display:flex;gap:16px;justify-content:center;margin-top:28px;flex-wrap:wrap">
+                                <div style="text-align:center;padding:16px 20px;background:var(--green-pale);border-radius:12px;min-width:120px">
+                                    <div style="font-size:1.5rem;margin-bottom:4px">📋</div>
+                                    <div style="font-size:.8rem;font-weight:700;color:var(--green-deep)">15 Pertanyaan</div>
+                                </div>
+                                <div style="text-align:center;padding:16px 20px;background:var(--amber-pale);border-radius:12px;min-width:120px">
+                                    <div style="font-size:1.5rem;margin-bottom:4px">⚡</div>
+                                    <div style="font-size:.8rem;font-weight:700;color:#92400E">Hasil Instan</div>
+                                </div>
+                                <div style="text-align:center;padding:16px 20px;background:#FEE2E2;border-radius:12px;min-width:120px">
+                                    <div style="font-size:1.5rem;margin-bottom:4px">💊</div>
+                                    <div style="font-size:.8rem;font-weight:700;color:var(--red-hot)">Solusi Pakar</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- QUESTION screen -->
+                        <div class="wiz-question" id="screenQuestion" style="display:none">
+                            <div class="wiz-answers" id="answerTags"></div>
+                            <div class="q-label" id="qLabel">Pertanyaan 1 dari 15</div>
+                            <div class="q-text" id="qText"></div>
+                            <div class="q-desc" id="qDesc"></div>
+                            <div class="yn-buttons">
+                                <button class="btn-yn btn-yes" id="btnYa">
+                                    <i class="fas fa-check-circle"></i> Ya, Terlihat
+                                </button>
+                                <button class="btn-yn btn-no" id="btnTidak">
+                                    <i class="fas fa-times-circle"></i> Tidak / Belum
+                                </button>
+                            </div>
+                            <div class="chain-vis" id="chainVis" style="display:none">
+                                <h4><i class="fas fa-project-diagram"></i> Inferensi Forward Chaining:</h4>
+                                <div class="chain-steps" id="chainSteps"></div>
+                            </div>
+                        </div>
+
+                        <!-- RESULT screen -->
+                        <div id="screenResult" style="display:none"></div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="wizard-footer" id="wizFooter">
+                        <button class="btn-wiz btn-wiz-secondary" id="btnUlang" style="display:none">
+                            <i class="fas fa-redo"></i> Ulangi
+                        </button>
+                        <button class="btn-wiz btn-wiz-secondary" id="btnBack" style="display:none">
+                            <i class="fas fa-arrow-left"></i> Kembali
+                        </button>
+                        <button class="btn-wiz btn-wiz-primary" id="btnStartWiz">
+                            <i class="fas fa-play"></i> Mulai Sekarang
+                        </button>
+                        <button class="btn-wiz btn-wiz-print" id="btnPrint" style="display:none">
+                            <i class="fas fa-print"></i> Cetak Laporan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FITUR -->
+        <section id="fiturSec" class="section-alt">
+            <div class="section" style="padding-top:56px;padding-bottom:56px">
+                <div class="section-header">
+                    <span class="sec-eyebrow">Keunggulan</span>
+                    <h2>Fitur CabaiCare</h2>
+                    <p>Sistem pakar modern berbasis Forward Chaining untuk perlindungan tanaman cabai Anda</p>
+                </div>
+                <div class="fitur-grid">
+                    <div class="fitur-card">
+                        <div class="fitur-icon"><i class="fas fa-route"></i></div>
+                        <h3>Forward Chaining Murni</h3>
+                        <p>Inferensi dari fakta ke kesimpulan — sistem bertanya gejala satu per satu, bukan langsung semua.</p>
+                    </div>
+                    <div class="fitur-card">
+                        <div class="fitur-icon"><i class="fas fa-bolt"></i></div>
+                        <h3>Diagnosa Cepat</h3>
+                        <p>15 pertanyaan terstruktur dan hasil langsung muncul tanpa perlu menunggu.</p>
+                    </div>
+                    <div class="fitur-card">
+                        <div class="fitur-icon"><i class="fas fa-chart-bar"></i></div>
+                        <h3>Tingkat Keyakinan</h3>
+                        <p>Persentase kepercayaan berdasarkan bobot gejala dan kecocokan aturan pakar.</p>
+                    </div>
+                    <div class="fitur-card">
+                        <div class="fitur-icon"><i class="fas fa-history"></i></div>
+                        <h3>Riwayat Diagnosa</h3>
+                        <p>Rekam medis tanaman tersimpan otomatis untuk referensi ke depan.</p>
+                    </div>
+                    <div class="fitur-card">
+                        <div class="fitur-icon"><i class="fas fa-print"></i></div>
+                        <h3>Cetak Laporan</h3>
+                        <p>Ekspor hasil diagnosa sebagai laporan resmi PDF.</p>
+                    </div>
+                    <div class="fitur-card">
+                        <div class="fitur-icon"><i class="fas fa-project-diagram"></i></div>
+                        <h3>Visualisasi Rantai</h3>
+                        <p>Lihat alur inferensi Forward Chaining secara real-time saat menjawab pertanyaan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <!-- end mainApp -->
+
+    <!-- FOOTER -->
+    <footer id="mainFooter" style="display:none">
+        <div class="footer-logo">Cabai<span>Care</span></div>
+        <p>Sistem Pakar Mitigasi Gagal Panen Cabai — Forward Chaining Engine</p>
+        <div class="footer-copy">© 2026 CabaiCare – Expert System | Program Studi PTI</div>
+    </footer>
+
+    <!-- RIWAYAT MODAL -->
+    <div class="modal-bg" id="riwayatModal">
+        <div class="modal">
+            <div class="modal-head">
+                <h3><i class="fas fa-history"></i> Riwayat Diagnosa</h3>
+                <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toastWrap"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
